@@ -1,12 +1,24 @@
-import { Body, Controller, HttpCode, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  HttpCode,
+  Post,
+  UsePipes,
+  ValidationPipe,
+} from '@nestjs/common';
 import { AuthDto } from './dto/auth.dto';
 
 @Controller('auth')
 export class AuthController {
+  @UsePipes(new ValidationPipe())
   @Post('signup')
-  async signup(@Body() body: AuthDto) {}
+  async signup(@Body() body: AuthDto) {
+    console.log(body);
+  }
 
   @HttpCode(200)
   @Post('signin')
-  async signin(@Body() body: AuthDto) {}
+  async signin(@Body() body: AuthDto) {
+    console.log(body);
+  }
 }

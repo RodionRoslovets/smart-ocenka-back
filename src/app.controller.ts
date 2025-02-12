@@ -9,10 +9,15 @@ export class AppController {
     private readonly config: ConfigService,
   ) {}
 
-  @Get()
-  getHello(): string {
-    console.log(this.config.get('TEST'));
-
+  @Get('/')
+  getMain(): string {
     return this.appService.getHello();
   }
+
+  // @Get('/')
+  // getHello2(): string {
+  //   console.log(this.config.get('TEST'));
+
+  //   return 'HELLO BITCH';
+  // }
 }

@@ -3,4 +3,8 @@ const constants = {
   KIT_SUMM: 1,
 };
 
-export default constants;
+const AUTH_ERRORS = {
+  INVALID_EMAIL: 'Введенное значение не является электронной почтой',
+};
+
+export { constants, AUTH_ERRORS };
