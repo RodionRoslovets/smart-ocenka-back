@@ -1,17 +1,17 @@
-import { prop } from '@typegoose/typegoose';
-import { Base, TimeStamps } from '@typegoose/typegoose/lib/defaultClasses';
-
-// eslint-disable-next-line @typescript-eslint/no-empty-object-type, @typescript-eslint/no-unsafe-declaration-merging
-export interface UserModel extends Base {}
+import { Prop } from '@nestjs/mongoose';
+import { TimeStamps } from '@typegoose/typegoose/lib/defaultClasses';
+import mongoose from 'mongoose';
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-declaration-merging
 export class UserModel extends TimeStamps {
-  @prop({ unique: true })
+  @Prop({ unique: true })
   email: string;
 
-  @prop()
+  @Prop()
   passwordHash: string;
-
-  @prop()
-  role: string;
 }
+
+export const UserSchema = new mongoose.Schema({
+  passwordHash: String,
+  email: String,
+});
